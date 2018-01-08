@@ -1,0 +1,181 @@
+@import "../../scss/theme/config";
+/** Select **/
+select{
+	font-size: 20px;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity:0;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 11;
+	top: 0;
+	left: 0;
+	position: absolute;
+	visibility: visible;
+}
+
+.select{
+	font: 13px ProximaNova-Regular, Arial;
+	display: inline-block;
+	position: relative;
+	color: $colorBase;
+	border: none;
+	height: 30px;
+	padding: 0;
+}
+
+.select-el {
+	position: relative;
+	display: inline-block;
+	z-index: 100;
+	height: 30px;
+	width: 100%;
+	outline: none;
+}
+
+.sim-select {
+	background: #FFF;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 30px;
+	width: 100%;
+	z-index: 9;
+	outline: none;
+	border: 1px solid $inputSearchColor;
+}
+
+.sim-select:hover{
+	border-color: $inputHoverColor;
+}
+
+.sim-select.open {
+	z-index: 10;
+	height: auto;
+}
+
+.sim-select input{
+	position: absolute;
+	border:	1px #ddd solid;
+	left: 0px;
+	z-index: -1;
+	top: 0px;
+	height: 0px;
+	width: 0px;
+	font-size: 0;
+}
+
+.sim-head {
+	height: 30px;
+	background: #FFF;		
+}
+
+.sim-select .current {
+	color: #595454;
+	font-size: 13px;
+	padding: 0 8px;
+	cursor: default;
+	height: 30px;
+	display: block;
+	line-height: 28px;
+	white-space: nowrap;
+	overflow: hidden;
+	margin-right: 32px;
+}
+
+.sim-arrow {
+	position: absolute;
+	right: 10px;
+	top: 12px;
+	width: 0;
+	height: 0;
+	border-top: 5px solid $colorDark;
+	border-left: 5px transparent solid;
+	border-right: 5px transparent solid;
+	border-bottom: none;
+	cursor: pointer;
+}
+
+.sim-select.open .sim-arrow {
+	border-bottom: 5px solid $colorDark;
+	border-left: 5px transparent solid;
+	border-right: 5px transparent solid;
+	border-top: none;
+}
+
+.sim-select .sim-head:before {
+	content: "";
+	/* border-left: 1px solid #616161; */
+	display: block;
+	position: absolute;
+	right: 1px;
+	top: 5px;
+	width: 29px;
+	height: 20px;
+	pointer-events: none;
+	background: #FFF;
+}
+
+.sim-select .sim-list {
+	display: none;
+	border-top: 1px #FFF solid;
+	-webkit-user-select: none; 
+	-webkit-user-drag: none; 
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.sim-select .sim-list ul {
+	max-height: $listMaxheight;
+	background-color: $selectBgColor;
+}
+
+.sim-select .sim-list li {
+	padding: 7px 6px;
+	font-size: 13px;
+	cursor: pointer;
+	list-style-type: none;
+}
+
+.sim-select .sim-list li.hover {
+	background: $selectHoverColor;
+	color: $colorBase;
+}
+
+.sim-select .sim-list li.disabled,
+.sim-select .sim-list li.unavailable {
+	background: #f6f6f6;
+	cursor: default;
+	color: $inputDisableColor;
+}
+
+.sim-select .sim-list li.disabled:hover,
+.sim-select .sim-list li.unavailable:hover  {
+	background: #f6f6f6;
+	color: $inputDisableColor;
+}
+
+select.error + .sim-select,
+.select.error .sim-select {
+	border: 1px solid $colorError !important;
+}
+
+select.error + .sim-select .sim-head .current,
+.select.error .sim-select .sim-head .current {
+	color: $colorError !important;
+}
+
+select.error + .sim-select.open
+.select.error .sim-select.open{
+	border: 1px solid $colorError;
+}
+
+select.error + .sim-select.open .sim-arrow,
+.select.error .sim-select.open .sim-arrow{
+	border-top-color: $colorError;
+}
+
+.select .sim-select.open .sim-arrow {
+	border-bottom-color: $colorDark;
+}
